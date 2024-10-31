@@ -29,6 +29,7 @@ export const Tasks = () => {
           id={task.id}
           description={task.description}
           publishedate={"19th Oct 2024"}
+          Completed={task.Completed}
           
           />
         )}

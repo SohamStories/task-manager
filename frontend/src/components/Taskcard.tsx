@@ -6,22 +6,28 @@ import { Link } from "react-router-dom";
         id: number;
         description: string;
         publishedate: string;
+        Completed: boolean;
     }
 export const Taskcard = ({
     authorname,
     title,
     id,
     description,
-    publishedate
+    publishedate,
+    Completed,
 }: Taskcardprops) => {
+
+    console.log({ authorname, title, id, description, publishedate, Completed });
+
 
     return  <Link to={`/task/${id}`}>
      <div>
         
         <div className="p-2 cursor-pointer" >
          <div className="border-4 pl-2">
-
-        <div className="flex">
+<div className=" border-b flex justify-between px-10 py-3">
+<div>
+<div className="flex">
           <div className="flex justify-center flex-col">
           <Avatar name={authorname}/>
             </div>
@@ -36,12 +42,25 @@ export const Taskcard = ({
         </div>
             </div>
         <div className="text-xl font-bold ">
-            {title}
+            {title} 
+            
         </div>
         <div className="text-base font-medium">
             {description.slice(0,17) + "..."}
+            <div>
+          
+
+            </div>
         </div>
+       
         
+</div>
+<div>
+          
+{Completed ? "Completed" : "Not Completed"}  
+            </div>
+</div>
+       
 
     </div>
     </div>
