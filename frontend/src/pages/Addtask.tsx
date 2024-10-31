@@ -17,13 +17,13 @@ const navigate = useNavigate();
 <label   className="block mb-2 text-sm font-medium  text-zinc-500  bg-gray-50">Put the Title here </label>
 <textarea onChange={(e) => {
     setTitle(e.target.value)
-}} rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300" placeholder="Title..."></textarea>
+}} rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300" placeholder="Title..."></textarea>
 <div className="pt-10">
 <label   className="block mb-2 text-sm font-medium  text-zinc-500  bg-gray-50">Put the Description here </label>
 <textarea onChange={(e) => {
     setDescription(e.target.value)
 } }
-rows="8" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300" placeholder="Description..."></textarea>
+rows={8} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300" placeholder="Description..."></textarea>
 </div>
 <div className="flex justify-center pt-10">
 <button onClick={async () => {

@@ -1,6 +1,6 @@
 import { Appbar } from "../components/Appbar"
 import { Taskcard } from "../components/Taskcard"
-import { Taskskeleton } from "../components/taskskeletion";
+import { Taskskeleton } from "../components/Taskskeletion";
 import { UseTasks } from "../hooks"
 
 

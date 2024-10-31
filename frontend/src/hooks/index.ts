@@ -15,30 +15,41 @@ export interface Task {
 
 }
 
-export const useTask = ({ id }: { id: string }) => {
 
+export const useTask = ({ id }: { id: string }) => {
     const [loading, setLoading] = useState(true);
-    const [task, setTask] = useState<Task[]>([]);
+    const [task, setTask] = useState<Task | null>(null); // Change to Task | null
 
     useEffect(() => {
-        axios.get(`${BACKEND_URL}/api/v1/task/${id}`, {
-            headers: {
-                Authorization: localStorage.getItem("token")
+        const fetchTask = async () => {
+            setLoading(true);
+            try {
+                const response = await axios.get(`${BACKEND_URL}/api/v1/task/${id}`, {
+                    headers: {
+                        Authorization: localStorage.getItem("token"),
+                    },
+                });
+                console.log("Fetched task:", response.data);
+                setTask(response.data.task); // Ensure response.data.task is a single Task
+            } catch (error) {
+                console.error("Error fetching task:", error);
+                setTask(null); // Optionally handle error state
+            } finally {
+                setLoading(false);
             }
-        })
-        .then(response =>{
-            console.log("Fetched tasks:", response.data); 
-            setTask(response.data.task);
-            setLoading(false);
-        })
-    },[id])
+        };
+
+        if (id) {
+            fetchTask();
+        }
+    }, [id]);
 
     return {
         loading,
-        task
-    }
+        task,
+    };
+};
 
-}
 
 export const UseTasks = () => {
 

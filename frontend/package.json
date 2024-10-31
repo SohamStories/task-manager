@@ -13,6 +13,7 @@
     "@soham6745/taskmanager": "^1.0.0",
     "@soham6745/taskmanager-2": "^1.0.0",
     "@soham6745/taskmanager-4": "^1.0.0",
+    "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0"
